@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prof. André Moreira — Aulas Particulares de Matemática e Física em Campinas/SP</title>
+  <meta name="description" content="Aulas particulares de Matemática e Física para vestibular, ENEM e reforço escolar. Presencial em Campinas/SP ou online para todo o Brasil. Método prático com foco em resultados." />
+  <meta name="keywords" content="aulas particulares, matemática, física, vestibular, ENEM, Campinas, reforço escolar, professor particular" />
+
+  <meta property="og:title" content="Prof. André Moreira — Aulas de Matemática e Física" />
+  <meta property="og:description" content="Aulas particulares com método prático. Presencial em Campinas/SP ou online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              50: '#EFF4F8',
+              100: '#D9E4EF',
+              200: '#B8CCDD',
+              300: '#8FAEC9',
+              400: '#6B91B3',
+              500: '#4A749C',
+              600: '#3A5F85',
+              700: '#2A4A6E',
+              800: '#1E3A5F',
+              900: '#0F2B46',
+              950: '#091C2E',
+            },
+            accent: {
+              50: '#FFF7ED',
+              100: '#FFEDD5',
+              200: '#FED7AA',
+              300: '#FDBA74',
+              400: '#FB923C',
+              500: '#F97316',
+              600: '#EA580C',
+              700: '#C2410C',
+            },
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Prof. André Moreira",
+    "description": "Aulas particulares de Matemática e Física em Campinas/SP e online.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Campinas",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "telephone": "+5519999999999",
+    "email": "contato@profandremoreira.com.br",
+    "areaServed": "BR",
+    "priceRange": "R$ 80 - R$ 520"
+  }
+  </script>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+  <!-- ========== VOLTAR BUTTON (always visible) ========== -->
+  <a
+    href="/"
+    class="fixed top-4 left-4 z-[60] inline-flex items-center gap-2 bg-white/90 backdrop-blur-md text-navy-800 text-sm font-semibold pl-3 pr-4 py-2.5 rounded-xl shadow-lg shadow-navy-900/10 border border-navy-100 hover:bg-white hover:shadow-xl transition-all duration-200 cursor-pointer"
+    aria-label="Voltar ao portfólio"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6"/>
+    </svg>
+    Voltar
+  </a>
+
+  <!-- ========== BANNER "EXEMPLO" ========== -->
+  <div class="fixed bottom-6 left-6 z-[60] bg-navy-900/80 backdrop-blur-md text-navy-300 text-[10px] font-semibold tracking-wider px-3 py-1.5 rounded-lg border border-white/10">
+    Exemplo de site — <span class="text-accent-400">Plano Apareça</span>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="font-heading font-bold text-lg text-white transition-colors duration-300" id="logo-text">
+        Prof. André<span class="text-accent-500">.</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8" id="desktop-nav">
+        <a href="#sobre" class="text-sm font-medium text-navy-200 hover:text-white transition-colors duration-200 cursor-pointer nav-link">Sobre</a>
+        <a href="#disciplinas" class="text-sm font-medium text-navy-200 hover:text-white transition-colors duration-200 cursor-pointer nav-link">Disciplinas</a>
+        <a href="#depoimentos" class="text-sm font-medium text-navy-200 hover:text-white transition-colors duration-200 cursor-pointer nav-link">Depoimentos</a>
+        <a href="#contato" class="text-sm font-medium text-navy-200 hover:text-white transition-colors duration-200 cursor-pointer nav-link">Contato</a>
+        <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula." target="_blank" rel="noopener noreferrer" class="bg-accent-600 hover:bg-accent-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors duration-200 cursor-pointer">
+          Agende sua aula
+        </a>
+      </nav>
+
+      <!-- Mobile Toggle -->
+      <button onclick="toggleMenu()" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-200 cursor-pointer" aria-label="Menu" id="menu-btn">
+        <svg id="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+        <svg id="icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-navy-100 px-6 pb-4">
+      <nav class="flex flex-col gap-1 pt-2">
+        <a href="#sobre" onclick="closeMenu()" class="text-navy-700 hover:text-navy-900 text-sm font-medium py-3 cursor-pointer">Sobre</a>
+        <a href="#disciplinas" onclick="closeMenu()" class="text-navy-700 hover:text-navy-900 text-sm font-medium py-3 cursor-pointer">Disciplinas</a>
+        <a href="#depoimentos" onclick="closeMenu()" class="text-navy-700 hover:text-navy-900 text-sm font-medium py-3 cursor-pointer">Depoimentos</a>
+        <a href="#contato" onclick="closeMenu()" class="text-navy-700 hover:text-navy-900 text-sm font-medium py-3 cursor-pointer">Contato</a>
+        <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula." target="_blank" rel="noopener noreferrer" class="bg-accent-600 hover:bg-accent-700 text-white text-sm font-semibold px-5 py-3 rounded-lg text-center mt-2 cursor-pointer">
+          Agende sua aula
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 overflow-hidden">
+      <!-- Decorative -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-20 right-10 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-navy-600/20 rounded-full blur-3xl"></div>
+        <svg class="absolute inset-0 w-full h-full opacity-[0.04]">
+          <defs><pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="1"/></pattern></defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)"/>
+        </svg>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-6 py-32 relative z-10">
+        <div class="max-w-2xl">
+          <!-- Badge -->
+          <span class="inline-flex items-center gap-2 bg-accent-500/15 text-accent-300 text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-accent-500/20">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            8 anos de experiência &middot; 200+ alunos aprovados
+          </span>
+
+          <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
+            Matemática e Física <span class="text-accent-400">não precisam ser um pesadelo</span>
+          </h1>
+
+          <p class="text-navy-200 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl">
+            Aulas particulares com quem já aprovou mais de 200 alunos em UNICAMP, USP e UNESP. Online ou presencial em Campinas.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula." target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold px-8 py-4 rounded-xl text-sm transition-all duration-200 cursor-pointer shadow-lg shadow-accent-600/25 hover:shadow-xl">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Quero agendar uma aula
+            </a>
+            <a href="#sobre" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/15 text-white font-semibold px-8 py-4 rounded-xl text-sm transition-all duration-200 cursor-pointer border border-white/15">
+              Saiba mais
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section id="sobre" class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16 items-center">
+          <!-- Avatar -->
+          <div class="fade-up flex justify-center lg:justify-start">
+            <div class="relative">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Prof. André Moreira"
+                class="w-48 h-48 lg:w-56 lg:h-56 rounded-2xl object-cover shadow-xl shadow-navy-900/20"
+              />
+              <div class="absolute -bottom-3 -right-3 bg-accent-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg">
+                UNICAMP
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div>
+            <div class="fade-up">
+              <span class="inline-block text-accent-600 text-sm font-semibold tracking-wider uppercase mb-3">Sobre mim</span>
+              <h2 class="font-heading text-3xl md:text-4xl font-bold text-navy-900 mb-6">Prof. André Moreira</h2>
+            </div>
+            <div class="fade-up">
+              <p class="text-slate-600 text-base leading-relaxed mb-4">
+                Sou professor de Matemática e Física há 8 anos. Formado em Licenciatura pela UNICAMP e ex-professor de cursinho, desenvolvi um método focado em resolução de exercícios que faz o aluno entender de verdade — e não decorar fórmulas.
+              </p>
+              <p class="text-slate-600 text-base leading-relaxed mb-8">
+                Já ajudei mais de 200 alunos a conquistarem vagas em UNICAMP, USP, UNESP e outras universidades.
+              </p>
+            </div>
+            <div class="fade-up grid grid-cols-3 gap-4">
+              <div class="bg-navy-50 rounded-xl p-4 text-center">
+                <p class="font-heading text-xl md:text-2xl font-bold text-navy-900">8 anos</p>
+                <p class="text-xs text-navy-500 mt-1">de experiência</p>
+              </div>
+              <div class="bg-navy-50 rounded-xl p-4 text-center">
+                <p class="font-heading text-xl md:text-2xl font-bold text-navy-900">200+</p>
+                <p class="text-xs text-navy-500 mt-1">alunos aprovados</p>
+              </div>
+              <div class="bg-navy-50 rounded-xl p-4 text-center">
+                <p class="font-heading text-xl md:text-2xl font-bold text-navy-900">UNICAMP</p>
+                <p class="text-xs text-navy-500 mt-1">USP, UNESP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DISCIPLINAS ========== -->
+    <section id="disciplinas" class="py-20 md:py-28 bg-navy-50/50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up text-center mb-16">
+          <span class="inline-block text-accent-600 text-sm font-semibold tracking-wider uppercase mb-3">Disciplinas</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-navy-900">O que eu ensino</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Matemática -->
+          <div class="fade-up h-full">
+            <div class="bg-white rounded-2xl p-8 border border-navy-100 hover:shadow-xl hover:shadow-navy-900/5 transition-shadow duration-300 h-full flex flex-col">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-600">
+                    <path d="M12 2v20M2 12h20M7 7l10 10M17 7 7 17"/>
+                  </svg>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-navy-900">Matemática</h3>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Álgebra</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Geometria</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Trigonometria</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Funções</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Probabilidade e Estatística</span>
+              </div>
+              <p class="text-sm text-slate-500 mb-4 flex-1">Ensino Médio, Vestibular, ENEM, Concursos</p>
+              <div class="pt-4 border-t border-navy-100">
+                <p class="font-heading font-bold text-accent-600 text-lg">A partir de R$ 80/hora</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Física -->
+          <div class="fade-up h-full">
+            <div class="bg-white rounded-2xl p-8 border border-navy-100 hover:shadow-xl hover:shadow-navy-900/5 transition-shadow duration-300 h-full flex flex-col">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-600">
+                    <circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>
+                  </svg>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-navy-900">Física</h3>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Mecânica</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Termodinâmica</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Óptica</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Eletricidade</span>
+                <span class="text-xs font-medium bg-navy-50 text-navy-600 px-3 py-1.5 rounded-full">Ondas</span>
+              </div>
+              <p class="text-sm text-slate-500 mb-4 flex-1">Ensino Médio, Vestibular, ENEM, Concursos</p>
+              <div class="pt-4 border-t border-navy-100">
+                <p class="font-heading font-bold text-accent-600 text-lg">A partir de R$ 80/hora</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== METODOLOGIA ========== -->
+    <section id="metodologia" class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Texto -->
+          <div>
+            <div class="fade-up">
+              <span class="inline-block text-accent-600 text-sm font-semibold tracking-wider uppercase mb-3">Metodologia</span>
+              <h2 class="font-heading text-3xl md:text-4xl font-bold text-navy-900 mb-6">Entender, não decorar</h2>
+            </div>
+            <div class="fade-up">
+              <p class="text-slate-600 text-base leading-relaxed mb-6">
+                Meu método é simples: primeiro eu entendo onde você tá travado. Depois, explico o conceito de um jeito que faz sentido — sem enrolação. E aí a gente parte pra prática, resolvendo exercícios juntos até você conseguir fazer sozinho.
+              </p>
+              <p class="text-slate-600 text-base leading-relaxed mb-8">
+                Nada de ficar passando fórmula no quadro. Aqui o aluno coloca a mão na massa desde o primeiro minuto.
+              </p>
+            </div>
+            <div class="fade-up space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm">Diagnóstico inicial</p>
+                  <p class="text-slate-500 text-sm">Identifico suas dificuldades e monto um plano personalizado.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm">Teoria direto ao ponto</p>
+                  <p class="text-slate-500 text-sm">Explicação objetiva, sem enrolação, focada no que cai na prova.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm">Prática intensiva</p>
+                  <p class="text-slate-500 text-sm">Exercícios de vestibulares reais, do básico ao avançado.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm">Acompanhamento contínuo</p>
+                  <p class="text-slate-500 text-sm">Tiro dúvidas pelo WhatsApp entre as aulas, sem custo extra.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="fade-up">
+            <div class="bg-navy-50 rounded-2xl p-8 lg:p-10">
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-accent-600 rounded-xl flex items-center justify-center shrink-0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-heading font-bold text-navy-900 text-sm mb-1">Onde você tá</p>
+                    <div class="w-full bg-navy-200 rounded-full h-2"><div class="bg-accent-500 h-2 rounded-full" style="width: 30%"></div></div>
+                  </div>
+                </div>
+                <div class="border-l-2 border-dashed border-navy-200 ml-6 h-6"></div>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-navy-800 rounded-xl flex items-center justify-center shrink-0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-heading font-bold text-navy-900 text-sm mb-1">Aulas com o método</p>
+                    <div class="w-full bg-navy-200 rounded-full h-2"><div class="bg-navy-600 h-2 rounded-full" style="width: 60%"></div></div>
+                  </div>
+                </div>
+                <div class="border-l-2 border-dashed border-navy-200 ml-6 h-6"></div>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center shrink-0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-heading font-bold text-navy-900 text-sm mb-1">Onde você vai chegar</p>
+                    <div class="w-full bg-navy-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8 pt-6 border-t border-navy-200">
+                <p class="text-navy-600 text-sm text-center italic">"O segredo é resolver exercício até não errar mais."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COMO FUNCIONA ========== -->
+    <section class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up text-center mb-16">
+          <span class="inline-block text-accent-600 text-sm font-semibold tracking-wider uppercase mb-3">Como funciona</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-navy-900">Simples assim</h2>
+        </div>
+
+        <div class="relative grid md:grid-cols-3 gap-12 md:gap-8">
+          <!-- Dashed connector line (desktop only) -->
+          <div class="hidden md:block absolute top-7 left-[calc(16.66%+28px)] right-[calc(16.66%+28px)] h-0 border-t-2 border-dashed border-navy-200" aria-hidden="true"></div>
+
+          <!-- Step 1 -->
+          <div class="fade-up">
+            <div class="relative text-center">
+              <div class="w-14 h-14 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-accent-600/20 relative z-10">
+                <span class="font-heading text-lg font-bold text-white">1</span>
+              </div>
+              <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center mx-auto mb-4 text-accent-600">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-navy-900 mb-2">Me chama no WhatsApp</h3>
+              <p class="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">Conta sua necessidade: matéria, nível, objetivo e urgência.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="fade-up">
+            <div class="relative text-center">
+              <div class="w-14 h-14 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-accent-600/20 relative z-10">
+                <span class="font-heading text-lg font-bold text-white">2</span>
+              </div>
+              <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center mx-auto mb-4 text-accent-600">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+                </svg>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-navy-900 mb-2">Agendamos o horário</h3>
+              <p class="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">Escolhemos o melhor dia e horário pra você, sem burocracia.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="fade-up">
+            <div class="relative text-center">
+              <div class="w-14 h-14 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-accent-600/20 relative z-10">
+                <span class="font-heading text-lg font-bold text-white">3</span>
+              </div>
+              <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center mx-auto mb-4 text-accent-600">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/>
+                </svg>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-navy-900 mb-2">Aula online ou presencial</h3>
+              <p class="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">Pelo Zoom, Google Meet ou presencial em Campinas/SP.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section id="depoimentos" class="py-20 md:py-28 bg-navy-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up text-center mb-16">
+          <span class="inline-block text-accent-400 text-sm font-semibold tracking-wider uppercase mb-3">Depoimentos</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-white">O que dizem meus alunos</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="fade-up">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/[0.08] transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent-400 mb-4">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
+                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
+              </svg>
+              <p class="text-navy-200 text-sm leading-relaxed mb-6">
+                &ldquo;Eu tava travado em Matemática e faltavam 4 meses pro vestibular. O Prof. André mudou minha forma de estudar. Passei na UNICAMP de primeira.&rdquo;
+              </p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">LF</span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Lucas Ferreira</p>
+                  <p class="text-navy-400 text-xs">Aprovado em Engenharia na UNICAMP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="fade-up">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/[0.08] transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent-400 mb-4">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
+                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
+              </svg>
+              <p class="text-navy-200 text-sm leading-relaxed mb-6">
+                &ldquo;As aulas são muito práticas. Ele não fica só na teoria, faz você resolver exercício até entender de verdade. Minha nota no ENEM foi a maior da escola.&rdquo;
+              </p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">MC</span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Maria Clara Santos</p>
+                  <p class="text-navy-400 text-xs">Nota 920 em Matemática no ENEM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="fade-up">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/[0.08] transition-colors duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent-400 mb-4">
+                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
+                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/>
+              </svg>
+              <p class="text-navy-200 text-sm leading-relaxed mb-6">
+                &ldquo;Melhor professor de Física que já tive. Explica de um jeito que faz sentido. Recomendo pra qualquer um que tá sofrendo com exatas.&rdquo;
+              </p>
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">PH</span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Pedro Henrique Alves</p>
+                  <p class="text-navy-400 text-xs">Aprovado em Física na USP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PACOTES ========== -->
+    <section class="py-20 md:py-28 bg-navy-50/50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up text-center mb-16">
+          <span class="inline-block text-accent-600 text-sm font-semibold tracking-wider uppercase mb-3">Pacotes</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-navy-900 mb-4">Escolha o melhor formato pra você</h2>
+          <p class="text-slate-500 text-lg max-w-xl mx-auto">Todas as aulas incluem material de apoio e acompanhamento via WhatsApp.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Aula Avulsa -->
+          <div class="fade-up">
+            <div class="bg-white border border-navy-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-navy-900/5 transition-shadow duration-300">
+              <h3 class="font-heading text-lg font-bold text-navy-900 mb-1">Aula Avulsa</h3>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="font-heading text-4xl font-bold text-navy-900">R$ 80</span>
+                <span class="text-sm text-slate-400">/hora</span>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed mb-8">Ideal pra tirar dúvidas específicas ou testar o método.</p>
+              <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20avulsa." target="_blank" rel="noopener noreferrer"
+                class="block w-full text-center font-semibold py-3.5 rounded-xl bg-navy-50 hover:bg-navy-100 text-navy-700 transition-colors duration-200 cursor-pointer">
+                Quero esse
+              </a>
+            </div>
+          </div>
+
+          <!-- Pacote Mensal -->
+          <div class="fade-up">
+            <div class="relative bg-navy-900 border-2 border-accent-500 rounded-2xl p-8 shadow-xl shadow-navy-900/20">
+              <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-500 text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">Mais escolhido</span>
+              <h3 class="font-heading text-lg font-bold text-white mb-1">Pacote Mensal</h3>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="font-heading text-4xl font-bold text-white">R$ 280</span>
+                <span class="text-sm text-navy-300">/mês</span>
+              </div>
+              <p class="text-sm text-navy-200 leading-relaxed mb-8">4 aulas por mês — economia de R$ 40. Ideal pra manter o ritmo.</p>
+              <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Pacote%20Mensal%20(4%20aulas)." target="_blank" rel="noopener noreferrer"
+                class="block w-full text-center font-semibold py-3.5 rounded-xl bg-accent-600 hover:bg-accent-700 text-white shadow-lg shadow-accent-600/25 transition-colors duration-200 cursor-pointer">
+                Quero esse
+              </a>
+            </div>
+          </div>
+
+          <!-- Pacote Intensivo -->
+          <div class="fade-up">
+            <div class="bg-white border border-navy-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-navy-900/5 transition-shadow duration-300">
+              <h3 class="font-heading text-lg font-bold text-navy-900 mb-1">Pacote Intensivo</h3>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="font-heading text-4xl font-bold text-navy-900">R$ 520</span>
+                <span class="text-sm text-slate-400">/mês</span>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed mb-8">8 aulas por mês — ideal pra quem tá perto do vestibular ou precisa de reforço intenso.</p>
+              <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Pacote%20Intensivo%20(8%20aulas)." target="_blank" rel="noopener noreferrer"
+                class="block w-full text-center font-semibold py-3.5 rounded-xl bg-navy-50 hover:bg-navy-100 text-navy-700 transition-colors duration-200 cursor-pointer">
+                Quero esse
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
+    <section id="contato" class="py-20 md:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up text-center mb-16">
+          <span class="inline-block text-accent-600 text-sm font-semibold tracking-wider uppercase mb-3">Contato</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-navy-900">Vamos conversar?</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <!-- Form -->
+          <div class="fade-up">
+            <form id="contact-form" class="space-y-5">
+              <div>
+                <label for="nome" class="block text-sm font-medium text-navy-700 mb-1.5">Nome</label>
+                <input type="text" id="nome" name="nome" required
+                  class="w-full px-4 py-3 rounded-xl border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500/30 focus:border-accent-500 transition-colors"
+                  placeholder="Seu nome" />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-navy-700 mb-1.5">Email</label>
+                <input type="email" id="email" name="email" required
+                  class="w-full px-4 py-3 rounded-xl border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500/30 focus:border-accent-500 transition-colors"
+                  placeholder="seu@email.com" />
+              </div>
+              <div>
+                <label for="telefone" class="block text-sm font-medium text-navy-700 mb-1.5">Telefone</label>
+                <input type="tel" id="telefone" name="telefone"
+                  class="w-full px-4 py-3 rounded-xl border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500/30 focus:border-accent-500 transition-colors"
+                  placeholder="(19) 99999-9999" />
+              </div>
+              <div>
+                <label for="mensagem" class="block text-sm font-medium text-navy-700 mb-1.5">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required
+                  class="w-full px-4 py-3 rounded-xl border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500/30 focus:border-accent-500 transition-colors resize-none"
+                  placeholder="Qual matéria precisa de ajuda? Qual seu nível?"></textarea>
+              </div>
+              <button type="submit"
+                class="w-full bg-accent-600 hover:bg-accent-700 text-white font-semibold py-3.5 rounded-xl transition-colors duration-200 cursor-pointer shadow-lg shadow-accent-600/20">
+                Enviar mensagem
+              </button>
+            </form>
+
+            <!-- Success message (hidden by default) -->
+            <div id="form-success" class="hidden bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              <h3 class="font-heading text-xl font-bold text-green-800 mb-2">Mensagem enviada!</h3>
+              <p class="text-green-600 text-sm">Responderei em até 24 horas. Se preferir, me chame direto no WhatsApp.</p>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="fade-up">
+            <div class="space-y-6 lg:pt-4">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#16a34a" stroke="none">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm mb-1">WhatsApp</p>
+                  <a href="https://wa.me/5519999999999" target="_blank" rel="noopener noreferrer" class="text-accent-600 hover:text-accent-700 text-sm font-medium cursor-pointer">(19) 99999-9999</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm mb-1">Email</p>
+                  <a href="mailto:contato@profandremoreira.com.br" class="text-accent-600 hover:text-accent-700 text-sm font-medium cursor-pointer">contato@profandremoreira.com.br</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm mb-1">Instagram</p>
+                  <span class="text-accent-600 text-sm font-medium">@profandremoreira</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-navy-900 text-sm mb-1">Localização</p>
+                  <p class="text-slate-500 text-sm">Campinas/SP (presencial) e online para todo o Brasil</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-navy-950 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-center md:text-left">
+          <p class="font-heading font-bold text-lg text-white">Prof. André<span class="text-accent-500">.</span></p>
+          <p class="text-navy-400 text-sm mt-2">Aulas particulares de Matemática e Física em Campinas/SP e online para todo o Brasil</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://wa.me/5519999999999" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="text-navy-300">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy-300">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="mailto:contato@profandremoreira.com.br" class="w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy-300">
+              <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-8 pt-8 text-center">
+        <p class="text-navy-500 text-sm">&copy; 2025 Prof. André Moreira. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== WHATSAPP FLOATING BUTTON ========== -->
+  <a href="https://wa.me/5519999999999?text=Ol%C3%A1%20Prof.%20Andr%C3%A9!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-colors duration-200 cursor-pointer"
+    aria-label="Fale pelo WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="none">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-accent-500 rounded-full animate-ping"></span>
+    <span class="absolute -top-1 -right-1 w-4 h-4 bg-accent-500 rounded-full"></span>
+  </a>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const logoText = document.getElementById('logo-text');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuBtn = document.getElementById('menu-btn');
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 50;
+      if (scrolled) {
+        header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-navy-900/5');
+        header.classList.remove('bg-transparent');
+        logoText.classList.add('text-navy-900');
+        logoText.classList.remove('text-white');
+        menuBtn.classList.add('text-navy-900', 'hover:bg-navy-50');
+        menuBtn.classList.remove('text-white', 'hover:bg-white/10');
+        navLinks.forEach(link => {
+          link.classList.add('text-navy-600', 'hover:text-navy-900');
+          link.classList.remove('text-navy-200', 'hover:text-white');
+        });
+      } else {
+        header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-navy-900/5');
+        header.classList.add('bg-transparent');
+        logoText.classList.remove('text-navy-900');
+        logoText.classList.add('text-white');
+        menuBtn.classList.remove('text-navy-900', 'hover:bg-navy-50');
+        menuBtn.classList.add('text-white', 'hover:bg-white/10');
+        navLinks.forEach(link => {
+          link.classList.remove('text-navy-600', 'hover:text-navy-900');
+          link.classList.add('text-navy-200', 'hover:text-white');
+        });
+      }
+    }, { passive: true });
+
+    // Mobile menu
+    let menuOpen = false;
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      document.getElementById('mobile-menu').classList.toggle('hidden', !menuOpen);
+      document.getElementById('icon-hamburger').classList.toggle('hidden', menuOpen);
+      document.getElementById('icon-close').classList.toggle('hidden', !menuOpen);
+    }
+    function closeMenu() {
+      menuOpen = false;
+      document.getElementById('mobile-menu').classList.add('hidden');
+      document.getElementById('icon-hamburger').classList.remove('hidden');
+      document.getElementById('icon-close').classList.add('hidden');
+    }
+
+    // Contact form
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.classList.add('hidden');
+      document.getElementById('form-success').classList.remove('hidden');
+    });
+
+    // Scroll animations (IntersectionObserver)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
